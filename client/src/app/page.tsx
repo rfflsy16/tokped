@@ -1,4 +1,4 @@
-import ProductCard from "./components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 
 type Product = {
   id: string;
@@ -25,7 +25,7 @@ export default async function Home() {
 
   return (
     <div className="container">
-      <h1>Selamat Datang di Tokopedia</h1>
+      <h1>Welcome to Tokopedia</h1>
       <div className="grid">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

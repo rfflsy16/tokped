@@ -1,4 +1,4 @@
-import WishlistCard from "../components/WishlistCard";
+import WishlistCard from "@/components/WishlistCard";
 
 type Wishlist = {
   id: number;
