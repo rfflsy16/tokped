@@ -1,22 +1,9 @@
 import ProductCard from "@/components/ProductCard";
-
-type Product = {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  excerpt: string;
-  price: number;
-  tags: string[];
-  thumbnail: string;
-  images: string[];
-  createdAt: string;
-  updatedAt: string;
-};
+import { IProduct } from "@/db/models/product";
 
 const fetchData = async () => {
-  const products = await fetch("http://localhost:3003/products");
-  const responseJson: Product[] = await products.json();
+  const products = await fetch("http://localhost:3000/products");
+  const responseJson: IProduct[] = await products.json();
   return responseJson;
 };
 
@@ -25,10 +12,12 @@ export default async function Home() {
 
   return (
     <div className="container">
-      <h1>Welcome to Tokopedia</h1>
-      <div className="grid">
+      <h1 className="text-center text-3xl font-bold mt-8">
+        Welcome to Tokopedia
+      </h1>
+      <div className="grid mt-10 gap-8">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id.toString()} product={product} />
         ))}
       </div>
     </div>

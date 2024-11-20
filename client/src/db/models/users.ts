@@ -1,4 +1,4 @@
-import { WithId } from "mongodb";
+import { ObjectId, WithId } from "mongodb";
 import { db } from "../config";
 import { z } from "zod";
 
@@ -16,7 +16,7 @@ export interface IUserInputLogin {
   password: string;
 }
 
-const UserSchemaRegister = z.object({
+export const UserSchemaRegister = z.object({
   name: z.string().min(5),
   username: z.string().min(3),
   email: z.string().min(5).email({ message: "Invalid email address" }),
@@ -30,31 +30,51 @@ const UserSchemaLogin = z.object({
 
 export type Iuser = WithId<IUserInput>;
 
-export default class User {
+export class User {
   static getCollection() {
     return db.collection<IUserInput>("Users");
+  }
+
+  static async read(): Promise<Iuser[]> {
+    const collection = this.getCollection();
+
+    const user: Iuser[] = await collection.find().toArray();
+
+    return user;
+  }
+
+  static async readById(id: string) {
+    const _id = new ObjectId(id);
+    const collection = this.getCollection();
+
+    const userById: Iuser | null = await collection.findOne({ _id });
+
+    return userById;
   }
 
   static async register(body: IUserInput): Promise<{ message: string }> {
     const collection = this.getCollection();
 
-    UserSchemaRegister.parse(body);
+    const hashPasswordNewUser: IUserInput = {
+      ...body,
+      password: hashPassword(body.password),
+    };
 
-    await collection.insertOne(body);
+    UserSchemaRegister.parse(hashPasswordNewUser);
+
+    await collection.insertOne(hashPasswordNewUser);
     return {
       message: "Success Sign Up your Account",
     };
   }
 
-  static async login(body: IUserInputLogin): Promise<{ message: string }> {
+  static async findByEmail(email: string) {
     const collection = this.getCollection();
 
-    UserSchemaLogin.parse(body);
+    const userFindByEmail = await collection.findOne({ email });
 
-    // await collection.insertOne(body);
+    if (!userFindByEmail) throw new Error("User is not found");
 
-    return {
-      message: "Success logged to your account",
-    };
+    return userFindByEmail;
   }
 }

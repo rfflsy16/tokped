@@ -1,6 +1,7 @@
+import { Product } from "@/app/page";
 import Image from "next/image";
 
-export default function ProductCard({ product }: { product: any }) {
+export default function ProductCard({ product }: { product: Product }) {
   const hasDiscount = product.price > 5000000;
 
   return (

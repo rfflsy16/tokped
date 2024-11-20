@@ -1,127 +1,115 @@
-.header {
-  background: var(--primary-color);
-  color: var(--secondary-color);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-}
+/* theme.css */
 
-.header h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.header nav {
-  display: flex;
-  gap: 10px;
-}
-
-.nav-button {
+.product-card {
   background-color: var(--secondary-color);
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  text-align: center;
+  position: relative;
 }
 
-.nav-button:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+.product-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px var(--hover-shadow);
+  filter: brightness(1.05);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
   transform: scale(1.05);
 }
 
-.nav-button:active {
-  background-color: #02674a;
-  transform: scale(1);
-}
-
-.hero {
-  background: linear-gradient(90deg, #03ac0e, #028a0a);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.hero p {
+.product-card h3 {
   font-size: 18px;
-  margin-bottom: 24px;
+  margin: 0 0 8px;
+  color: var(--text-color);
 }
 
-.hero-button {
-  background-color: #ffd700;
-  color: #333333;
-  padding: 12px 24px;
+.product-card p {
   font-size: 16px;
+  margin: 0 0 16px;
+  color: var(--primary-color);
   font-weight: bold;
-  border-radius: 50px;
+}
+
+.product-card button {
+  background: var(--gradient-color);
+  color: var(--secondary-color);
   border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s;
-}
-
-.hero-button:hover {
-  background-color: #ffc107;
-}
-
-.categories {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.categories h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.category-grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.category-card {
-  background-color: white;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.category-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.category-card p {
   font-size: 14px;
-  color: #333333;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.product-card button:hover {
+  transform: translateY(-3px);
+  background: #f7c600;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.products h2 {
+.wishlist-card {
+  background-color: var(--secondary-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  margin: 40px 0 20px;
+}
+
+.wishlist-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px var(--hover-shadow);
+}
+
+.wishlist-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.wishlist-card p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.wishlist-card button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.wishlist-card button:hover {
+  transform: translateY(-3px);
+  background-color: #f7c600;
 }

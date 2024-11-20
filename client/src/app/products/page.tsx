@@ -25,7 +25,7 @@ export default async function ProductsPage() {
 
   return (
     <div className="container">
-      <h1>Daftar Produk</h1>
+      <h1 className="text-center text-3xl font-bold mt-8">Daftar Produk</h1>
       <div className="grid">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

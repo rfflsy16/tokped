@@ -1,12 +1,13 @@
 // components/Header.tsx
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Header() {
   return (
     <header className="header">
-      <h1>Tokopedia</h1>
-      <nav>
+      <h1 className="text-xl font-bold hover:text-white transition-all">
+        Tokopedia
+      </h1>
+      <nav className="flex gap-4">
         <Link href="/" passHref>
           <button className="nav-button">🏠 Home</button>
         </Link>
