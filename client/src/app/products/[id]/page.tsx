@@ -15,7 +15,7 @@ type Product = {
 };
 
 const fetchData = async () => {
-  const products = await fetch("http://localhost:3003/products");
+  const products = await fetch("http://localhost:3000/api/products");
   const responseJson: Product[] = await products.json();
   return responseJson;
 };
