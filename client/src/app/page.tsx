@@ -1,15 +1,25 @@
+// app/page.tsx
 import Banner from "@/components/Banner";
 import ProductCard from "@/components/ProductCard";
 import { IProduct } from "@/db/models/product";
 
-const fetchData = async () => {
-  const products = await fetch("http://localhost:3000/api/products");
-  const responseJson: IProduct[] = await products.json();
-  return responseJson;
+const fetchData = async (search?: string): Promise<IProduct[]> => {
+  const url = search
+    ? `http://localhost:3000/api/products?search=${encodeURIComponent(search)}`
+    : `http://localhost:3000/api/products`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
+  }
+  return res.json();
 };
 
-export default async function Home() {
-  const products = await fetchData();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: { search?: string };
+}) {
+  const products = await fetchData(searchParams?.search);
 
   return (
     <div className="container mx-auto px-4">

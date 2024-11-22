@@ -34,11 +34,14 @@ export default class Product {
     return db.collection<IProductInput>("Products");
   }
 
-  static async read(): Promise<IProduct[]> {
+  static async read(searchQuery?: string): Promise<IProduct[]> {
     const collection = this.getCollection();
 
-    const products: IProduct[] = await collection.find().toArray();
+    const filter = searchQuery
+      ? { name: { $regex: searchQuery, $options: "i" } } // Pencarian dengan regex case-insensitive
+      : {};
 
+    const products: IProduct[] = await collection.find(filter).toArray();
     return products;
   }
 
@@ -61,5 +64,12 @@ export default class Product {
     return {
       message: "Success added Product",
     };
+  }
+
+  static async search(query: string): Promise<IProduct[]> {
+    const collection = this.getCollection();
+    const regex = new RegExp(query, "i");
+    const products = await collection.find({ name: regex }).toArray();
+    return products;
   }
 }

@@ -1,11 +1,12 @@
-import { NextResponse } from "next/server";
-import { IProduct } from "@/db/models/product";
+// app/api/products/route.ts
+import { NextRequest, NextResponse } from "next/server";
 import Product from "@/db/models/product";
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
-    const products: IProduct[] = await Product.read();
-    return NextResponse.json(products);
+    const search = request.nextUrl.searchParams.get("search"); // Gunakan .get()
+    const products = await Product.read(search || undefined); // Kirimkan ke model
+    return NextResponse.json(products); // Kirimkan hasil pencarian
   } catch (error) {
     console.error(error);
     return NextResponse.json(

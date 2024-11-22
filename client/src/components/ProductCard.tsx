@@ -23,8 +23,8 @@ export default function ProductCard({ product }: { product: IProduct }) {
       <p className="text-green-600 font-bold text-sm mt-2">
         {product.price.toLocaleString()} IDR
       </p>
-      <button className="mt-4 w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2 px-4 rounded-lg shadow-md hover:from-green-600 hover:to-green-700">
-        Tambah ke Wishlist
+      <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full">
+        Tambahkan ke whistlist
       </button>
     </div>
   );

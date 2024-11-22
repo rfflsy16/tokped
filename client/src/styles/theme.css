@@ -42,7 +42,7 @@
 }
 
 .product-card button {
-  background: var(--gradient-color);
+  background: #029b2d;
   color: var(--secondary-color);
   border: none;
   padding: 12px 20px;
@@ -55,7 +55,7 @@
 
 .product-card button:hover {
   transform: translateY(-3px);
-  background: #f7c600;
+  background: #21b34a;
 }
 
 .product-badge {
