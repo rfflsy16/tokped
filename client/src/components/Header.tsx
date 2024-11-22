@@ -11,7 +11,7 @@ export default function Header() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/?search=${encodeURIComponent(search)}`); // Update URL query parameter
+    router.push(`/?search=${encodeURIComponent(search)}`);
   };
 
   return (

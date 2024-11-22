@@ -8,9 +8,9 @@ export interface IProductInput {
   description: string;
   excerpt: string;
   price: number;
-  tags: string;
+  tags: string[];
   thumbnail: string;
-  images: string;
+  images: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -45,13 +45,20 @@ export default class Product {
     return products;
   }
 
-  static async readById(id: string): Promise<IProduct | null> {
-    const _id = new ObjectId(id);
-    const collection = this.getCollection();
+  static async readBySlug(slug: string): Promise<IProduct | null> {
+    try {
+      // const _id = new ObjectId(id);
+      const collection = this.getCollection();
 
-    const products: IProduct | null = await collection.findOne({ _id });
+      const products: IProduct | null = await collection.findOne({
+        slug: slug,
+      });
 
-    return products;
+      return products;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to fetch the detail of product");
+    }
   }
 
   static async create(body: IProductInput): Promise<{ message: string }> {
