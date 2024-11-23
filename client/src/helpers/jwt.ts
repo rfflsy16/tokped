@@ -1,7 +1,8 @@
 import jwt, { JwtPayload, SignOptions } from "jsonwebtoken";
 import "dotenv/config";
+import * as jose from "jose";
 
-const secretKey: string = process.env.JWT_SECRET_KEY || "";
+const privateKey: string = process.env.JWT_SECRET_KEY || "";
 
 export interface Payload {
   userId: string;
@@ -11,11 +12,17 @@ export interface Payload {
 }
 
 const signToken = (payload: Payload, option?: SignOptions): string => {
-  return jwt.sign(payload, secretKey, option);
+  return jwt.sign(payload, privateKey, option);
 };
 
 const verifyToken = (token: string): Payload & JwtPayload => {
-  return jwt.verify(token, secretKey) as Payload & JwtPayload;
+  return jwt.verify(token, privateKey) as Payload & JwtPayload;
 };
 
-export { signToken, verifyToken };
+const verifyTokenJose = async <T>(token: string) => {
+  const secretKey = new TextEncoder().encode(privateKey);
+  const payloadJose = await jose.jwtVerify<T>(token, secretKey);
+
+  return payloadJose.payload;
+};
+export { signToken, verifyToken, verifyTokenJose };

@@ -1,45 +1,50 @@
-"user server";
+"use server";
 
-import { User } from "@/db/models/users";
-import { comparePassword, hashPassword } from "@/helpers/bcrypt";
 import { redirect } from "next/navigation";
-
-import { z } from "zod";
 import { cookies } from "next/headers";
-import { signToken } from "@/helpers/jwt";
+import { User } from "@/db/models/users";
+import { comparePassword } from "@/helpers/bcrypt";
+import { Payload, signToken } from "@/helpers/jwt";
+import { UserSchemaLogin } from "@/db/models/users";
 
-export const handleLogin = async (formData: FormData) => {
-  const userSchema = z.object({
-    email: z.string().email(),
-    password: z.string(),
-  });
-
+export async function handleLogin(formData: FormData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  const parsedData = userSchema.safeParse({
+  const parse = UserSchemaLogin.safeParse({
     email,
     password,
   });
 
-  if (!parsedData.success) {
-    const errPath = parsedData.error.issues[0].path[0];
-    const errMessage = parsedData.error.issues[0].message;
-    const errFInalMessage = `${errPath} - ${errMessage}`;
+  if (!parse.success) {
+    const errorPath = parse.error.issues[0].path[0];
+    const errorMessage = parse.error.issues[0].message;
+    const errorFinalMessage = `${errorPath} - ${errorMessage}`;
 
-    return redirect(`http://localhost:3000/login?error=${errFInalMessage}`);
+    return redirect(`http://localhost:3000/login?error=${errorFinalMessage}`);
   }
 
-  const user = await User.findByEmail(parsedData.data.email);
+  const user = await User.findByEmail(parse.data.email);
 
-  if (!user || !comparePassword(parsedData.data.password, user.password)) {
+  if (!user || !comparePassword(parse.data.password, user.password)) {
     return redirect(`http://localhost:3000/login?error=Invalid%20credentials`);
   }
 
-  const payload = {
-    id: user._id,
+  const payload: Payload = {
+    userId: user._id.toString(),
+    name: user.name,
+    username: user.username,
     email: user.email,
   };
 
-  // const access_token = signToken(payload)
-};
+  const token = signToken(payload);
+
+  cookies().set("token", token, {
+    httpOnly: true,
+    secure: false,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+    sameSite: "strict",
+  });
+
+  return redirect("http://localhost:3000");
+}

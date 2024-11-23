@@ -24,6 +24,9 @@ export async function GetMetaData({
   return {
     title: data.name,
     description: data.description,
+    icons: {
+      icon: "/favicon.ico",
+    },
   };
 }
 

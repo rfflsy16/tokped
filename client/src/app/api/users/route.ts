@@ -1,44 +1,75 @@
-// // import User from "@/db/models/users";
-// import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { User } from "@/db/models/users";
+import { z } from "zod";
 
-// import { UserSchemaRegister } from "@/db/models/users";
+type MyResponse<T> = {
+  statusCode: number;
+  message?: string;
+  data?: T;
+  error?: string;
+};
 
-// type MyResponse<T> = {
-//   statusCode: number;
-//   message: string;
-//   data?: T;
-//   error?: string;
-// };
+export const GET = async () => {
+  return Response.json(
+    {
+      statusCode: 200,
+      message: "This is from GET /api/users !",
+    },
+    {
+      status: 200,
+    }
+  );
+};
 
-// export const GET = async (request: NextRequest) => {
-//   const getUser = await User.read();
+import { UserSchemaRegister } from "@/db/models/users";
+export async function POST(request: NextRequest) {
+  try {
+    const data = await request.json();
+    console.log(data);
+    const parse = UserSchemaRegister.safeParse(data);
 
-//   console.log(request.headers.get("x-user-id"));
-//   console.log(request.headers.get("x-user-email"));
+    if (!parse.success) {
+      throw parse.error;
+    }
 
-//   return Response.json(
-//     {
-//       statusCode: 200,
-//       message: "From APi /users",
-//     },
-//     {
-//       status: 200,
-//     }
-//   );
-// };
+    const newUser = await User.register(parse.data);
 
-// export const POST = async (request: NextRequest) => {
-//   try {
-//     const data = await request.json();
+    // console.log(newUser);
 
-//     const parsedData = UserSchemaRegister.safeParse(data);
+    return NextResponse.json<MyResponse<unknown>>(
+      {
+        statusCode: 201,
+        message: "This is from POST /api/users !",
+        data: newUser,
+      },
+      {
+        status: 201,
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    if (error instanceof z.ZodError) {
+      console.log(error);
 
-//     if (!parsedData.success) {
-//       throw parsedData.error;
-//     }
+      return NextResponse.json<MyResponse<never>>(
+        {
+          statusCode: 400,
+          error: error.issues[0].message,
+        },
+        {
+          status: 400,
+        }
+      );
+    }
 
-//     const user = await User.register(parsedData.data);
-
-//     // return NextResponse.json<MyResponse<unknown>>;
-//   } catch (error) {}
-// };
+    return NextResponse.json<MyResponse<never>>(
+      {
+        statusCode: 500,
+        message: "Internal Server Error !",
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+}

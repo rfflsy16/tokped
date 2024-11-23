@@ -23,7 +23,7 @@ export const UserSchemaRegister = z.object({
   password: z.string().min(5),
 });
 
-const UserSchemaLogin = z.object({
+export const UserSchemaLogin = z.object({
   email: z.string().min(5).email({ message: "Invalid email address" }),
   password: z.string().min(5),
 });
@@ -52,7 +52,7 @@ export class User {
     return userById;
   }
 
-  static async register(body: IUserInput): Promise<{ message: string }> {
+  static async register(body: IUserInput) {
     const collection = this.getCollection();
 
     const hashPasswordNewUser: IUserInput = {
@@ -60,12 +60,8 @@ export class User {
       password: hashPassword(body.password),
     };
 
-    UserSchemaRegister.parse(hashPasswordNewUser);
-
     await collection.insertOne(hashPasswordNewUser);
-    return {
-      message: "Success Sign Up your Account",
-    };
+    return hashPasswordNewUser;
   }
 
   static async findByEmail(email: string) {
