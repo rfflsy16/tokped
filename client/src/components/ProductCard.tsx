@@ -41,15 +41,16 @@ export default function ProductCard({ product }: { product: IProduct }) {
         <p className="text-lg font-bold text-green-600">
           {product.price.toLocaleString()} IDR
         </p>
-        <button
-          className="bg-green-500 hover:bg-green-400 text-white text-sm font-medium py-2 rounded-md transition-all duration-200"
-          onClick={(e) => {
-            e.stopPropagation(); // Mencegah trigger pada onClick card
-            alert(`Menambahkan ${product.name} ke wishlist!`);
-          }}
-        >
-          Tambahkan ke wishlist
-        </button>
+        <form className="p-3 flex flex-col gap-2 " action="">
+          <button
+            className="bg-green-500 hover:bg-green-400 text-white text-sm font-medium py-2 rounded-md transition-all duration-200"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            Tambahkan ke wishlist
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -11,11 +11,15 @@ export interface IWishlistInput {
 
 export type IWishlist = WithId<IWishlistInput>;
 
-const WishlistSchema = z.object({
+export const WishlistSchema = z.object({
   userId: z.string().min(3),
   productId: z.string().min(3),
   createdAt: z.string().min(3).datetime(),
   updatedAT: z.string().datetime(),
+});
+
+export const UserInputWishlistSchema = z.object({
+  userId: z.string(),
 });
 
 export default class Wishlist {
@@ -38,7 +42,7 @@ export default class Wishlist {
     const stages = [
       {
         $match: {
-          id: _id,
+          userId: _id,
         },
       },
       {
@@ -57,6 +61,8 @@ export default class Wishlist {
     const wishlist = (await collection
       .aggregate(stages)
       .toArray()) as IWishlist[];
+
+    // console.log(wishlist, "<<<<<<<<<");
 
     return wishlist;
   }
