@@ -100,7 +100,86 @@ export async function POST(request: NextRequest) {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
+
+    return NextResponse.json<Response<typeof result>>(
+      { statusCode: 201, data: result },
+      { status: 201 }
+    );
   } catch (error) {
     console.error(error, "<<<<<<<<<< from API POST /Wishlists");
+    return NextResponse.json<Response<null>>(
+      {
+        statusCode: 500,
+        message: "Internal server Error",
+        error: (error as Error).message,
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const userId = request.headers.get("x-user-id");
+    const { wishlistId } = await request.json();
+
+    if (!wishlistId || !userId) {
+      return NextResponse.json<Response<null>>(
+        {
+          statusCode: 400,
+          message: "WishlistID and UserID is required",
+          data: null,
+          error: "WishlistID and UserID is required",
+        },
+        { status: 400 }
+      );
+    }
+
+    const parse = UserInputWishlistSchema.safeParse({ userId });
+    if (!parse.success) {
+      return NextResponse.json<Response<null>>(
+        {
+          statusCode: 400,
+          message: "Invalid user ID",
+          data: null,
+          error: "User ID is not valid",
+        },
+        { status: 400 }
+      );
+    }
+
+    const result = await Wishlist.delete({
+      _id: new ObjectId(wishlistId),
+    });
+
+    if (!result.deletedCount) {
+      return NextResponse.json<Response<null>>(
+        {
+          statusCode: 404,
+          message: "Item is not found",
+          data: null,
+          error: "Item is not found",
+        },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json<Response<typeof result>>(
+      {
+        statusCode: 200,
+        data: result,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error(error, "<<<<<<<<<<<<<<<< FROM API DEL /wishlists");
+    return NextResponse.json<Response<null>>(
+      {
+        statusCode: 500,
+        message: "Internal Server Error",
+        error: (error as Error).message,
+      },
+      { status: 500 }
+    );
   }
 }

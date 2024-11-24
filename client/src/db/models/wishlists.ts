@@ -2,13 +2,15 @@ import { ObjectId, WithId } from "mongodb";
 import { db } from "../config";
 import { z } from "zod";
 
+export interface DeleteInputWishlist {
+  _id: ObjectId;
+}
 export interface IWishlistInput {
   userId: ObjectId;
   productId: ObjectId;
   createdAt: string;
   updatedAt: string;
 }
-
 export type IWishlist = WithId<IWishlistInput>;
 
 export const WishlistSchema = z.object({
@@ -75,14 +77,10 @@ export default class Wishlist {
     return resultOfWishlist;
   }
 
-  static async delete(id: string): Promise<{ message: string }> {
+  static async delete(_id: DeleteInputWishlist) {
     const collection = this.getCollection();
-    const _id = new ObjectId(id);
+    const result = await collection.deleteOne(_id);
 
-    await collection.deleteOne(_id);
-
-    return {
-      message: "Success delete your wishlists",
-    };
+    return result;
   }
 }

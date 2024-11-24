@@ -54,7 +54,7 @@ export default function Header({ token }: { token: string | null }) {
           </button>
         </form>
         <div className="flex items-center gap-4">
-          <Link href="/cart">
+          <Link href="/wishlists">
             <button className="text-gray-700 hover:text-green-600">🛒</button>
           </Link>
           {!token ? (

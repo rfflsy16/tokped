@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -64,13 +65,15 @@ const Footer = () => {
           </div>
           <h5 className="font-bold ">Ikuti Kami</h5>
           <div className="w-full">
-            <img
-              src="https://img.pikbest.com/png-images/20240828/round-logos-of-facebook-instagram-and-tiktok-colored-popular-social-media-logos_10570194.png!bw700"
-              alt="Security Image"
-              width={150}
-              height={0}
-              style={{ objectFit: "contain", height: "auto" }}
-            />
+            <Link href="https://www.tiktok.com/@raplesss?lang=en">
+              <img
+                src="https://img.pikbest.com/png-images/20240828/round-logos-of-facebook-instagram-and-tiktok-colored-popular-social-media-logos_10570194.png!bw700"
+                alt="Security Image"
+                width={150}
+                height={0}
+                style={{ objectFit: "contain", height: "auto" }}
+              />
+            </Link>
             <img
               src="https://images.tokopedia.net/img/helpcenter/2019/09/Webp.net-resizeimage.png"
               alt="ISO Certified"
