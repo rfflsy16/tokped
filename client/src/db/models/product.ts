@@ -34,40 +34,39 @@ export default class Product {
     return db.collection<IProductInput>("Products");
   }
 
-  static async read(searchQuery?: string, limit?: number): Promise<IProduct[]> {
+  // Menambahkan pagination pada fungsi read
+  static async read(
+    searchQuery?: string,
+    limit?: number,
+    page?: number
+  ): Promise<IProduct[]> {
     const collection = this.getCollection();
 
     const filter = searchQuery
       ? { name: { $regex: searchQuery, $options: "i" } }
       : {};
 
+    const skip = page && page > 1 ? (page - 1) * (limit || 10) : 0; // Menghitung skip untuk pagination
+
     const products: IProduct[] = await collection
       .find(filter)
-      .limit(limit || 0)
+      .skip(skip) // Skip data sesuai dengan halaman
+      .limit(limit || 10)
       .toArray();
 
     return products;
   }
 
   static async readBySlug(slug: string): Promise<IProduct | null> {
-    try {
-      // const _id = new ObjectId(id);
-      const collection = this.getCollection();
+    const collection = this.getCollection();
 
-      const products: IProduct | null = await collection.findOne({
-        slug: slug,
-      });
+    const product: IProduct | null = await collection.findOne({ slug: slug });
 
-      return products;
-    } catch (error) {
-      console.error(error);
-      throw new Error("Failed to fetch the detail of product");
-    }
+    return product;
   }
 
   static async create(body: IProductInput): Promise<{ message: string }> {
     const collection = this.getCollection();
-
     ProductSchema.parse(body);
 
     await collection.insertOne(body);

@@ -7,9 +7,7 @@ import ClientComponent from "@/components/ClientComponent";
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      {/* Wrapper untuk dua kolom */}
       <div className="flex flex-col md:flex-row w-full max-w-6xl items-center gap-8">
-        {/* Kolom kiri (Gambar dan teks) */}
         <div className="flex flex-col items-center justify-center w-full md:w-1/2 px-6 text-center md:text-left">
           <img
             src="https://images.tokopedia.net/img/user/register_icon_new.png"
@@ -24,7 +22,6 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Kolom kanan (Formulir login) */}
         <div className="w-full md:w-1/2 bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-lg md:text-xl font-bold text-center text-gray-800 mb-4">
             Masuk ke Akun Anda

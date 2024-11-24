@@ -2,7 +2,6 @@
 
 import { IProduct } from "@/db/models/product";
 import Link from "next/link";
-import Image from "next/image";
 import ButtonDeleteWishlist from "./RemoveWishlistButton";
 
 interface WishlistProps {

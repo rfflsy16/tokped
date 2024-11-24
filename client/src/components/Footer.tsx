@@ -1,12 +1,10 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-100 py-10 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-        {/* Kolom 1: Tokopedia */}
         <div>
           <h5 className="font-bold mb-4">Tokopedia</h5>
           <ul className="text-sm text-gray-600 space-y-2">
@@ -24,7 +22,6 @@ const Footer = () => {
             <li>Promo Guncang</li>
           </ul>
         </div>
-        {/* Kolom 2: Beli & Jual */}
         <div>
           <h5 className="font-bold mb-4">Beli</h5>
           <ul className="text-sm text-gray-600 space-y-2">
@@ -38,7 +35,6 @@ const Footer = () => {
             <li>Daftar Official Store</li>
           </ul>
         </div>
-        {/* Kolom 3: Bantuan dan Panduan */}
         <div>
           <h5 className="font-bold mb-4">Bantuan dan Panduan</h5>
           <ul className="text-sm text-gray-600 space-y-2">
@@ -47,7 +43,6 @@ const Footer = () => {
             <li>Kebijakan Privasi</li>
           </ul>
         </div>
-        {/* Kolom 4: Ikuti Kami */}
         <div>
           <div className="flex space-x-4 mb-6">
             <a href="#" className="text-blue-500">
@@ -82,7 +77,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* Footer Bottom */}
       <div className="mt-10 text-center">
         <div className="flex justify-center items-center space-x-4 mb-4">
           <img

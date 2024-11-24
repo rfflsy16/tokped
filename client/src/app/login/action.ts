@@ -7,7 +7,6 @@ import { signToken } from "@/helpers/jwt";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
-// Ensure the function is async
 export const handleLogin = async (formData: FormData) => {
   const email = formData.get("email");
   const password = formData.get("password");
