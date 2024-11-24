@@ -8,7 +8,7 @@ export async function GET(
   try {
     const { slug } = params;
 
-    console.log(slug, "<<<<<<<<<<<<");
+    // console.log(slug, "<<<<<<<<<<<<");
     if (!slug) {
       return NextResponse.json(
         { message: `slug is not avaible`, data: null },

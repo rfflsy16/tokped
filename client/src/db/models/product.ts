@@ -34,14 +34,18 @@ export default class Product {
     return db.collection<IProductInput>("Products");
   }
 
-  static async read(searchQuery?: string): Promise<IProduct[]> {
+  static async read(searchQuery?: string, limit?: number): Promise<IProduct[]> {
     const collection = this.getCollection();
 
     const filter = searchQuery
-      ? { name: { $regex: searchQuery, $options: "i" } } // Pencarian dengan regex case-insensitive
+      ? { name: { $regex: searchQuery, $options: "i" } }
       : {};
 
-    const products: IProduct[] = await collection.find(filter).toArray();
+    const products: IProduct[] = await collection
+      .find(filter)
+      .limit(limit || 0)
+      .toArray();
+
     return products;
   }
 

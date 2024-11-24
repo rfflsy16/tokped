@@ -1,43 +1,56 @@
 "use client";
 
 import { IProduct } from "@/db/models/product";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function ProductCard({ product }: { product: IProduct }) {
-  const router = useRouter(); // Pakai router untuk navigasi
+  const router = useRouter();
   const hasDiscount = product.price > 5000000;
 
   const handleCardClick = () => {
-    router.push(`/products/${product.slug}`); // Redirect ke halaman detail
+    router.push(`/products/${product.slug}`);
   };
 
   return (
     <div
-      className="product-card bg-white shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer"
-      onClick={handleCardClick} // Tambahin event click
+      className="flex flex-col w-[250px] bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 overflow-hidden cursor-pointer group"
+      onClick={handleCardClick}
     >
-      {hasDiscount && (
-        <div className="product-badge bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full absolute top-3 left-3">
-          Diskon!
-        </div>
-      )}
-      <Image
-        src={product.thumbnail}
-        alt={product.name}
-        width={150}
-        height={150}
-        className="rounded-lg"
-        unoptimized
-      />
-      <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-      <p className="text-green-600 font-bold text-sm mt-2">
-        {product.price.toLocaleString()} IDR
-      </p>
-      <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full">
-        Tambahkan ke wishlist
-      </button>
+      {/* Gambar Produk */}
+      <div className="relative w-full h-[180px]">
+        {hasDiscount && (
+          <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md shadow-sm">
+            Diskon!
+          </span>
+        )}
+        <Image
+          src={product.thumbnail}
+          alt={product.name}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          unoptimized
+        />
+      </div>
+
+      {/* Informasi Produk */}
+      <div className="p-3 flex flex-col gap-2">
+        <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 leading-tight">
+          {product.name}
+        </h3>
+        <p className="text-lg font-bold text-green-600">
+          {product.price.toLocaleString()} IDR
+        </p>
+        <button
+          className="bg-green-500 hover:bg-green-400 text-white text-sm font-medium py-2 rounded-md transition-all duration-200"
+          onClick={(e) => {
+            e.stopPropagation(); // Mencegah trigger pada onClick card
+            alert(`Menambahkan ${product.name} ke wishlist!`);
+          }}
+        >
+          Tambahkan ke wishlist
+        </button>
+      </div>
     </div>
   );
 }

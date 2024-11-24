@@ -3,11 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { token } from "@/app/login/action";
+import { handleLogout } from "@/helpers/handleLogout";
 
 export default function Header() {
   const [search, setSearch] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
+
+  if (pathname === "/login") {
+    return null;
+  }
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,14 +74,29 @@ export default function Header() {
           <Link href="/cart">
             <button className="text-gray-700 hover:text-green-600">🛒</button>
           </Link>
-          <Link href="/login">
-            <button className="px-4 py-2 bg-white text-green-600 font-semibold rounded-full shadow hover:bg-green-100 transition">
-              Masuk
-            </button>
-          </Link>
-          <button className="px-4 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-500 transition">
-            Daftar
-          </button>
+          {!token ? (
+            <>
+              <Link href="/login">
+                <button className="px-4 py-2 bg-white text-green-600 font-semibold rounded-full shadow hover:bg-green-100 transition">
+                  Masuk
+                </button>
+              </Link>
+              <button className="px-4 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-500 transition">
+                Daftar
+              </button>
+            </>
+          ) : (
+            <>
+              <form action={handleLogout} method="post">
+                <button
+                  className="px-3 py-1 text-sm font-semibold text-white bg-red-600 rounded-md hover:bg-red-700"
+                  type="submit"
+                >
+                  Keluar
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </header>

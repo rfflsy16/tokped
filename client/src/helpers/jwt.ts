@@ -1,8 +1,7 @@
 import jwt, { JwtPayload, SignOptions } from "jsonwebtoken";
-import "dotenv/config";
 import * as jose from "jose";
 
-const privateKey: string = process.env.JWT_SECRET_KEY || "";
+const privateKey: string = process.env.JWT_SECRET_KEY || "amanaza";
 
 export interface Payload {
   userId: string;

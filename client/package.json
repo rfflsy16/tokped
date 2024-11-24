@@ -9,14 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "bcryptjs": "^2.4.3",
     "cookies": "^0.9.1",
-    "dotenv": "^16.4.5",
     "jose": "^5.9.6",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
     "next": "14.2.18",
+    "nookies": "^2.5.2",
     "react": "^18",
     "react-dom": "^18",
     "swiper": "^11.1.15",

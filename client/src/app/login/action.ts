@@ -1,13 +1,15 @@
 "use server";
 
+import { User, UserSchemaLogin } from "@/db/models/users";
+import { comparePassword } from "@/helpers/bcrypt";
+import { signToken } from "@/helpers/jwt";
+
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { User } from "@/db/models/users";
-import { comparePassword } from "@/helpers/bcrypt";
-import { Payload, signToken } from "@/helpers/jwt";
-import { UserSchemaLogin } from "@/db/models/users";
 
-export async function handleLogin(formData: FormData) {
+export const token = cookies().get("token");
+
+export const handleLogin = async (formData: FormData) => {
   const email = formData.get("email");
   const password = formData.get("password");
 
@@ -21,19 +23,19 @@ export async function handleLogin(formData: FormData) {
     const errorMessage = parse.error.issues[0].message;
     const errorFinalMessage = `${errorPath} - ${errorMessage}`;
 
-    return redirect(`http://localhost:3000/login?error=${errorFinalMessage}`);
+    return redirect(`/login?error=${errorFinalMessage}`);
   }
 
   const user = await User.findByEmail(parse.data.email);
 
   if (!user || !comparePassword(parse.data.password, user.password)) {
-    return redirect(`http://localhost:3000/login?error=Invalid%20credentials`);
+    return redirect(`/login?error=Invalid%20credentials`);
   }
 
-  const payload: Payload = {
+  const payload = {
     userId: user._id.toString(),
-    name: user.name,
     username: user.username,
+    name: user.name,
     email: user.email,
   };
 
@@ -42,9 +44,9 @@ export async function handleLogin(formData: FormData) {
   cookies().set("token", token, {
     httpOnly: true,
     secure: false,
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 hari
     sameSite: "strict",
   });
 
-  return redirect("http://localhost:3000");
-}
+  return redirect(`/`);
+};

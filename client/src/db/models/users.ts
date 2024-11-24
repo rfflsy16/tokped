@@ -1,7 +1,6 @@
-import { ObjectId, WithId } from "mongodb";
 import { db } from "../config";
+import { ObjectId, WithId } from "mongodb";
 import { z } from "zod";
-
 import { hashPassword, comparePassword } from "@/helpers/bcrypt";
 
 export interface IUserInput {
@@ -37,18 +36,14 @@ export class User {
 
   static async read(): Promise<Iuser[]> {
     const collection = this.getCollection();
-
     const user: Iuser[] = await collection.find().toArray();
-
     return user;
   }
 
   static async readById(id: string) {
     const _id = new ObjectId(id);
     const collection = this.getCollection();
-
     const userById: Iuser | null = await collection.findOne({ _id });
-
     return userById;
   }
 
@@ -66,11 +61,8 @@ export class User {
 
   static async findByEmail(email: string) {
     const collection = this.getCollection();
-
     const userFindByEmail = await collection.findOne({ email });
-
     if (!userFindByEmail) throw new Error("User is not found");
-
     return userFindByEmail;
   }
 }
