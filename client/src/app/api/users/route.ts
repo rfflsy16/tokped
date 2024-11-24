@@ -9,7 +9,7 @@ type MyResponse<T> = {
   error?: string;
 };
 
-export const GET = async () => {
+export async function GET() {
   return Response.json(
     {
       statusCode: 200,
@@ -19,7 +19,7 @@ export const GET = async () => {
       status: 200,
     }
   );
-};
+}
 
 import { UserSchemaRegister } from "@/db/models/users";
 export async function POST(request: NextRequest) {

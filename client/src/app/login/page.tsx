@@ -1,13 +1,15 @@
 "use client";
 
+import { Suspense } from "react";
 import { handleLogin } from "./action";
 import ClientComponent from "@/components/ClientComponent";
-import { Suspense } from "react";
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      {/* Wrapper untuk dua kolom */}
       <div className="flex flex-col md:flex-row w-full max-w-6xl items-center gap-8">
+        {/* Kolom kiri (Gambar dan teks) */}
         <div className="flex flex-col items-center justify-center w-full md:w-1/2 px-6 text-center md:text-left">
           <img
             src="https://images.tokopedia.net/img/user/register_icon_new.png"
@@ -22,10 +24,8 @@ export default function LoginPage() {
           </p>
         </div>
 
+        {/* Kolom kanan (Formulir login) */}
         <div className="w-full md:w-1/2 bg-white rounded-lg shadow-lg p-8">
-          <Suspense>
-            <ClientComponent />
-          </Suspense>
           <h2 className="text-lg md:text-xl font-bold text-center text-gray-800 mb-4">
             Masuk ke Akun Anda
           </h2>
@@ -38,6 +38,9 @@ export default function LoginPage() {
               Daftar Sekarang
             </a>
           </p>
+          <Suspense>
+            <ClientComponent />
+          </Suspense>
 
           <form action={handleLogin}>
             <div className="form-control mb-4">
@@ -48,13 +51,12 @@ export default function LoginPage() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Contoh: email@example.com"
+                placeholder="Masukan email Anda"
                 className="input input-bordered w-full"
                 required
               />
             </div>
 
-            {/* Input Password */}
             <div className="form-control mb-6">
               <label className="label" htmlFor="password">
                 <span className="label-text text-sm">Kata Sandi</span>
@@ -69,7 +71,6 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Tombol Login */}
             <button
               type="submit"
               className="btn bg-green-600 border-none text-white hover:bg-green-700 w-full"
@@ -78,7 +79,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Footer Kecil */}
           <p className="text-xs text-gray-500 mt-4 text-center">
             Dengan masuk, saya menyetujui{" "}
             <a

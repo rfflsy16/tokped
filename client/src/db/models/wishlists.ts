@@ -31,26 +31,52 @@ export default class Wishlist {
     return wishlist;
   }
 
-  static async readById(id: string): Promise<IWishlist | null> {
+  static async readById(id: string): Promise<IWishlist[]> {
     const _id = new ObjectId(id);
     const collection = this.getCollection();
 
-    const wishlist: IWishlist | null = await collection.findOne({ _id });
+    const stages = [
+      {
+        $match: {
+          id: _id,
+        },
+      },
+      {
+        $lookup: {
+          from: "Products",
+          localField: "productId",
+          foreignField: "_id",
+          as: "Product",
+        },
+      },
+      {
+        $unwind: "$Product",
+      },
+    ];
+
+    const wishlist = (await collection
+      .aggregate(stages)
+      .toArray()) as IWishlist[];
 
     return wishlist;
   }
 
-  static async create(body: IWishlistInput): Promise<{ message: string }> {
+  static async create(body: IWishlistInput) {
     const collection = this.getCollection();
 
-    WishlistSchema.parse(body);
+    const resultOfWishlist = await collection.insertOne(body);
 
-    await collection.insertOne(body);
-
-    return {
-      message: "Success added Wishlist",
-    };
+    return resultOfWishlist;
   }
 
-  static async delete(id: string) {}
+  static async delete(id: string): Promise<{ message: string }> {
+    const collection = this.getCollection();
+    const _id = new ObjectId(id);
+
+    await collection.deleteOne(_id);
+
+    return {
+      message: "Success delete your wishlists",
+    };
+  }
 }

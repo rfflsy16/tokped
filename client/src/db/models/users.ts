@@ -16,7 +16,7 @@ export interface IUserInputLogin {
 }
 
 export const UserSchemaRegister = z.object({
-  name: z.string().min(5),
+  name: z.string().min(3),
   username: z.string().min(3),
   email: z.string().min(5).email({ message: "Invalid email address" }),
   password: z.string().min(5),

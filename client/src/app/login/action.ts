@@ -7,8 +7,7 @@ import { signToken } from "@/helpers/jwt";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
-export const token = cookies().get("token");
-
+// Ensure the function is async
 export const handleLogin = async (formData: FormData) => {
   const email = formData.get("email");
   const password = formData.get("password");
@@ -44,7 +43,7 @@ export const handleLogin = async (formData: FormData) => {
   cookies().set("token", token, {
     httpOnly: true,
     secure: false,
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 hari
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     sameSite: "strict",
   });
 

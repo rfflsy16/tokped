@@ -4,15 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { token } from "@/app/login/action";
 import { handleLogout } from "@/helpers/handleLogout";
 
-export default function Header() {
+export default function Header({ token }: { token: string | null }) {
   const [search, setSearch] = useState("");
   const router = useRouter();
   const pathname = usePathname();
 
-  if (pathname === "/login") {
+  if (pathname === "/login" || pathname === "/register") {
     return null;
   }
 
@@ -23,7 +22,6 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-      {/* Top Section */}
       <div className="bg-gray-100 text-sm text-gray-600 py-2 px-6 flex justify-between items-center">
         <div>Download Tokopedia App</div>
         <div className="flex gap-4">
@@ -39,21 +37,6 @@ export default function Header() {
           <Link href="/">
             <Image src="/icon.svg" alt="Logo" width={150} height={60} />
           </Link>
-        </div>
-        <div className="relative">
-          <a
-            href="/wishlist"
-            className="px-4 py-2 text-gray-700 bg-gray border rounded-full shadow-sm flex items-center"
-          >
-            Wishlist
-          </a>
-          <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg w-48">
-            <ul>
-              <li className="px-4 py-2 hover:bg-gray-100">Elektronik</li>
-              <li className="px-4 py-2 hover:bg-gray-100">Pakaian</li>
-              <li className="px-4 py-2 hover:bg-gray-100">Olahraga</li>
-            </ul>
-          </div>
         </div>
         <form
           className="flex items-center flex-grow bg-gray-100 rounded-full shadow px-4 py-2 gap-2"
@@ -81,9 +64,11 @@ export default function Header() {
                   Masuk
                 </button>
               </Link>
-              <button className="px-4 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-500 transition">
-                Daftar
-              </button>
+              <Link href="/register">
+                <button className="px-4 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-500 transition">
+                  Daftar
+                </button>
+              </Link>
             </>
           ) : (
             <>
