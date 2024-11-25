@@ -101,9 +101,6 @@ export default async function ProductDetail({
                 ))}
               </div>
             </div>
-            <div className="flex justify-start pl-2 pt-1 pb-4">
-              <AddWishlistButton productId={data._id.toString()} />
-            </div>
           </div>
         </div>
       </main>

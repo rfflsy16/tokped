@@ -40,6 +40,9 @@ export default function ProductCard({ product }: { product: IProduct }) {
         <p className="text-lg font-bold text-green-600">
           {product.price.toLocaleString()} IDR
         </p>
+        <div className="flex justify-start pl-2 pt-1 pb-4">
+          <AddWishlistButton productId={product._id.toString()} />
+        </div>
       </div>
     </div>
   );
