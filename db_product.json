@@ -1,0 +1,410 @@
+[
+  {
+    "name": "Minimalist Wall Clock",
+    "slug": "minimalist-wall-clock",
+    "description": "A modern wall clock with a minimalist design. Perfect for adding a stylish touch to your home or office.",
+    "excerpt": "A stylish minimalist wall clock.",
+    "price": 39900,
+    "tags": ["decor", "clock", "minimalist"],
+    "thumbnail": "https://loremflickr.com/400/400/clock",
+    "images": [
+      "https://loremflickr.com/400/400/time",
+      "https://loremflickr.com/400/400/modern",
+      "https://loremflickr.com/400/400/interior",
+      "https://loremflickr.com/400/400/design"
+    ],
+    "createdAt": "2024-01-20T14:00:00.000Z",
+    "updatedAt": "2024-10-30T12:00:00.000Z"
+  },
+  {
+    "name": "Portable Laptop Stand",
+    "slug": "portable-laptop-stand",
+    "description": "Enhance your work setup with this lightweight and adjustable laptop stand. Foldable for easy portability.",
+    "excerpt": "A portable and adjustable laptop stand.",
+    "price": 69900,
+    "tags": ["office", "laptop", "stand"],
+    "thumbnail": "https://loremflickr.com/400/400/laptop",
+    "images": [
+      "https://loremflickr.com/400/400/stand",
+      "https://loremflickr.com/400/400/desk",
+      "https://loremflickr.com/400/400/workspace",
+      "https://loremflickr.com/400/400/ergonomic"
+    ],
+    "createdAt": "2024-02-05T10:00:00.000Z",
+    "updatedAt": "2024-10-28T10:30:00.000Z"
+  },
+  {
+    "name": "Wireless Gaming Mouse",
+    "slug": "wireless-gaming-mouse",
+    "description": "A high-precision wireless gaming mouse with RGB lighting and customizable buttons. Perfect for gamers.",
+    "excerpt": "A wireless gaming mouse with RGB lighting.",
+    "price": 129900,
+    "tags": ["electronics", "gaming", "mouse"],
+    "thumbnail": "https://loremflickr.com/400/400/mouse",
+    "images": [
+      "https://loremflickr.com/400/400/gaming",
+      "https://loremflickr.com/400/400/rgb",
+      "https://loremflickr.com/400/400/accessories",
+      "https://loremflickr.com/400/400/tech"
+    ],
+    "createdAt": "2024-03-10T11:30:00.000Z",
+    "updatedAt": "2024-10-20T12:45:00.000Z"
+  },
+  {
+    "name": "Eco-Friendly Water Bottle",
+    "slug": "eco-friendly-water-bottle",
+    "description": "A reusable stainless steel water bottle. Keeps drinks hot or cold for hours and reduces plastic waste.",
+    "excerpt": "A reusable stainless steel water bottle.",
+    "price": 49900,
+    "tags": ["kitchen", "bottle", "eco-friendly"],
+    "thumbnail": "https://loremflickr.com/400/400/bottle",
+    "images": [
+      "https://loremflickr.com/400/400/eco",
+      "https://loremflickr.com/400/400/green",
+      "https://loremflickr.com/400/400/drink",
+      "https://loremflickr.com/400/400/travel"
+    ],
+    "createdAt": "2024-04-15T14:00:00.000Z",
+    "updatedAt": "2024-10-15T10:00:00.000Z"
+  },
+  {
+    "name": "Smart Fitness Band",
+    "slug": "smart-fitness-band",
+    "description": "Track your steps, heart rate, and sleep with this smart fitness band. Compatible with iOS and Android devices.",
+    "excerpt": "A smart fitness band for health tracking.",
+    "price": 89900,
+    "tags": ["electronics", "fitness", "wearable"],
+    "thumbnail": "https://loremflickr.com/400/400/fitness",
+    "images": [
+      "https://loremflickr.com/400/400/smart",
+      "https://loremflickr.com/400/400/wearable",
+      "https://loremflickr.com/400/400/health",
+      "https://loremflickr.com/400/400/exercise"
+    ],
+    "createdAt": "2024-05-10T08:30:00.000Z",
+    "updatedAt": "2024-10-01T14:00:00.000Z"
+  },
+  {
+    "name": "Noise-Canceling Headphones",
+    "slug": "noise-canceling-headphones",
+    "description": "Immerse yourself in music with these noise-canceling headphones. Features Bluetooth connectivity and long battery life.",
+    "excerpt": "Bluetooth headphones with noise cancelation.",
+    "price": 249900,
+    "tags": ["electronics", "audio", "headphones"],
+    "thumbnail": "https://loremflickr.com/400/400/headphones",
+    "images": [
+      "https://loremflickr.com/400/400/music",
+      "https://loremflickr.com/400/400/sound",
+      "https://loremflickr.com/400/400/wireless",
+      "https://loremflickr.com/400/400/audio"
+    ],
+    "createdAt": "2024-05-20T15:45:00.000Z",
+    "updatedAt": "2024-11-01T10:00:00.000Z"
+  },
+  {
+    "name": "Digital Kitchen Scale",
+    "slug": "digital-kitchen-scale",
+    "description": "Measure ingredients with precision using this digital kitchen scale. Features a sleek stainless steel design.",
+    "excerpt": "A precise digital kitchen scale.",
+    "price": 29900,
+    "tags": ["kitchen", "scale", "digital"],
+    "thumbnail": "https://loremflickr.com/400/400/scale",
+    "images": [
+      "https://loremflickr.com/400/400/kitchen",
+      "https://loremflickr.com/400/400/measure",
+      "https://loremflickr.com/400/400/recipe",
+      "https://loremflickr.com/400/400/tools"
+    ],
+    "createdAt": "2024-06-15T12:00:00.000Z",
+    "updatedAt": "2024-10-05T08:30:00.000Z"
+  },
+  {
+    "name": "Cozy Fleece Blanket",
+    "slug": "cozy-fleece-blanket",
+    "description": "Stay warm with this ultra-soft fleece blanket. Perfect for lounging or as a decorative throw.",
+    "excerpt": "A soft and cozy fleece blanket.",
+    "price": 59900,
+    "tags": ["home", "blanket", "comfort"],
+    "thumbnail": "https://loremflickr.com/400/400/blanket",
+    "images": [
+      "https://loremflickr.com/400/400/cozy",
+      "https://loremflickr.com/400/400/warm",
+      "https://loremflickr.com/400/400/bedroom",
+      "https://loremflickr.com/400/400/comfort"
+    ],
+    "createdAt": "2024-07-01T10:00:00.000Z",
+    "updatedAt": "2024-10-15T16:00:00.000Z"
+  },
+  {
+    "name": "Wireless Charging Pad",
+    "slug": "wireless-charging-pad",
+    "description": "Charge your devices with this sleek wireless charging pad. Compatible with most Qi-enabled devices.",
+    "excerpt": "A sleek wireless charging pad.",
+    "price": 49900,
+    "tags": ["electronics", "charging", "wireless"],
+    "thumbnail": "https://loremflickr.com/400/400/charging",
+    "images": [
+      "https://loremflickr.com/400/400/wireless",
+      "https://loremflickr.com/400/400/phone",
+      "https://loremflickr.com/400/400/gadget",
+      "https://loremflickr.com/400/400/tech"
+    ],
+    "createdAt": "2024-08-01T14:15:00.000Z",
+    "updatedAt": "2024-11-01T12:00:00.000Z"
+  },
+  {
+    "name": "Adjustable Standing Desk",
+    "slug": "adjustable-standing-desk",
+    "description": "Improve your posture with this adjustable standing desk. Perfect for home or office use.",
+    "excerpt": "An adjustable standing desk for better posture.",
+    "price": 599900,
+    "tags": ["office", "desk", "standing"],
+    "thumbnail": "https://loremflickr.com/400/400/desk",
+    "images": [
+      "https://loremflickr.com/400/400/office",
+      "https://loremflickr.com/400/400/workspace",
+      "https://loremflickr.com/400/400/ergonomic",
+      "https://loremflickr.com/400/400/design"
+    ],
+    "createdAt": "2024-09-01T08:00:00.000Z",
+    "updatedAt": "2024-11-15T10:30:00.000Z"
+  },
+  {
+    "name": "Minimalist Wall Clock",
+    "slug": "minimalist-wall-clock",
+    "description": "A modern wall clock with a minimalist design. Perfect for adding a stylish touch to your home or office.",
+    "excerpt": "A stylish minimalist wall clock.",
+    "price": 39900,
+    "tags": ["decor", "clock", "minimalist"],
+    "thumbnail": "https://loremflickr.com/400/400/clock",
+    "images": [
+      "https://loremflickr.com/400/400/time",
+      "https://loremflickr.com/400/400/modern",
+      "https://loremflickr.com/400/400/interior",
+      "https://loremflickr.com/400/400/design"
+    ],
+    "createdAt": "2024-01-20T14:00:00.000Z",
+    "updatedAt": "2024-10-30T12:00:00.000Z"
+  },
+  {
+    "name": "Portable Laptop Stand",
+    "slug": "portable-laptop-stand",
+    "description": "Enhance your work setup with this lightweight and adjustable laptop stand. Foldable for easy portability.",
+    "excerpt": "A portable and adjustable laptop stand.",
+    "price": 69900,
+    "tags": ["office", "laptop", "stand"],
+    "thumbnail": "https://loremflickr.com/400/400/laptop",
+    "images": [
+      "https://loremflickr.com/400/400/stand",
+      "https://loremflickr.com/400/400/desk",
+      "https://loremflickr.com/400/400/workspace",
+      "https://loremflickr.com/400/400/ergonomic"
+    ],
+    "createdAt": "2024-02-05T10:00:00.000Z",
+    "updatedAt": "2024-10-28T10:30:00.000Z"
+  },
+  {
+    "name": "Wireless Gaming Mouse",
+    "slug": "wireless-gaming-mouse",
+    "description": "A high-precision wireless gaming mouse with RGB lighting and customizable buttons. Perfect for gamers.",
+    "excerpt": "A wireless gaming mouse with RGB lighting.",
+    "price": 129900,
+    "tags": ["electronics", "gaming", "mouse"],
+    "thumbnail": "https://loremflickr.com/400/400/mouse",
+    "images": [
+      "https://loremflickr.com/400/400/gaming",
+      "https://loremflickr.com/400/400/rgb",
+      "https://loremflickr.com/400/400/accessories",
+      "https://loremflickr.com/400/400/tech"
+    ],
+    "createdAt": "2024-03-10T11:30:00.000Z",
+    "updatedAt": "2024-10-20T12:45:00.000Z"
+  },
+  {
+    "name": "Eco-Friendly Water Bottle",
+    "slug": "eco-friendly-water-bottle",
+    "description": "A reusable stainless steel water bottle. Keeps drinks hot or cold for hours and reduces plastic waste.",
+    "excerpt": "A reusable stainless steel water bottle.",
+    "price": 49900,
+    "tags": ["kitchen", "bottle", "eco-friendly"],
+    "thumbnail": "https://loremflickr.com/400/400/bottle",
+    "images": [
+      "https://loremflickr.com/400/400/eco",
+      "https://loremflickr.com/400/400/green",
+      "https://loremflickr.com/400/400/drink",
+      "https://loremflickr.com/400/400/travel"
+    ],
+    "createdAt": "2024-04-15T14:00:00.000Z",
+    "updatedAt": "2024-10-15T10:00:00.000Z"
+  },
+  {
+    "name": "Smart Fitness Band",
+    "slug": "smart-fitness-band",
+    "description": "Track your steps, heart rate, and sleep with this smart fitness band. Compatible with iOS and Android devices.",
+    "excerpt": "A smart fitness band for health tracking.",
+    "price": 89900,
+    "tags": ["electronics", "fitness", "wearable"],
+    "thumbnail": "https://loremflickr.com/400/400/fitness",
+    "images": [
+      "https://loremflickr.com/400/400/smart",
+      "https://loremflickr.com/400/400/wearable",
+      "https://loremflickr.com/400/400/health",
+      "https://loremflickr.com/400/400/exercise"
+    ],
+    "createdAt": "2024-05-10T08:30:00.000Z",
+    "updatedAt": "2024-10-01T14:00:00.000Z"
+  },
+  {
+    "name": "Noise-Canceling Headphones",
+    "slug": "noise-canceling-headphones",
+    "description": "Immerse yourself in music with these noise-canceling headphones. Features Bluetooth connectivity and long battery life.",
+    "excerpt": "Bluetooth headphones with noise cancelation.",
+    "price": 249900,
+    "tags": ["electronics", "audio", "headphones"],
+    "thumbnail": "https://loremflickr.com/400/400/headphones",
+    "images": [
+      "https://loremflickr.com/400/400/music",
+      "https://loremflickr.com/400/400/sound",
+      "https://loremflickr.com/400/400/wireless",
+      "https://loremflickr.com/400/400/audio"
+    ],
+    "createdAt": "2024-05-20T15:45:00.000Z",
+    "updatedAt": "2024-11-01T10:00:00.000Z"
+  },
+  {
+    "name": "Digital Kitchen Scale",
+    "slug": "digital-kitchen-scale",
+    "description": "Measure ingredients with precision using this digital kitchen scale. Features a sleek stainless steel design.",
+    "excerpt": "A precise digital kitchen scale.",
+    "price": 29900,
+    "tags": ["kitchen", "scale", "digital"],
+    "thumbnail": "https://loremflickr.com/400/400/scale",
+    "images": [
+      "https://loremflickr.com/400/400/kitchen",
+      "https://loremflickr.com/400/400/measure",
+      "https://loremflickr.com/400/400/recipe",
+      "https://loremflickr.com/400/400/tools"
+    ],
+    "createdAt": "2024-06-15T12:00:00.000Z",
+    "updatedAt": "2024-10-05T08:30:00.000Z"
+  },
+  {
+    "name": "Cozy Fleece Blanket",
+    "slug": "cozy-fleece-blanket",
+    "description": "Stay warm with this ultra-soft fleece blanket. Perfect for lounging or as a decorative throw.",
+    "excerpt": "A soft and cozy fleece blanket.",
+    "price": 59900,
+    "tags": ["home", "blanket", "comfort"],
+    "thumbnail": "https://loremflickr.com/400/400/blanket",
+    "images": [
+      "https://loremflickr.com/400/400/cozy",
+      "https://loremflickr.com/400/400/warm",
+      "https://loremflickr.com/400/400/bedroom",
+      "https://loremflickr.com/400/400/comfort"
+    ],
+    "createdAt": "2024-07-01T10:00:00.000Z",
+    "updatedAt": "2024-10-15T16:00:00.000Z"
+  },
+  {
+    "name": "Wireless Charging Pad",
+    "slug": "wireless-charging-pad",
+    "description": "Charge your devices with this sleek wireless charging pad. Compatible with most Qi-enabled devices.",
+    "excerpt": "A sleek wireless charging pad.",
+    "price": 49900,
+    "tags": ["electronics", "charging", "wireless"],
+    "thumbnail": "https://loremflickr.com/400/400/charging",
+    "images": [
+      "https://loremflickr.com/400/400/wireless",
+      "https://loremflickr.com/400/400/phone",
+      "https://loremflickr.com/400/400/gadget",
+      "https://loremflickr.com/400/400/tech"
+    ],
+    "createdAt": "2024-08-01T14:15:00.000Z",
+    "updatedAt": "2024-11-01T12:00:00.000Z"
+  },
+  {
+    "name": "Adjustable Standing Desk",
+    "slug": "adjustable-standing-desk",
+    "description": "Improve your posture with this adjustable standing desk. Perfect for home or office use.",
+    "excerpt": "An adjustable desk for standing or sitting.",
+    "price": 189900,
+    "tags": ["office", "furniture", "desk"],
+    "thumbnail": "https://loremflickr.com/400/400/desk",
+    "images": [
+      "https://loremflickr.com/400/400/work",
+      "https://loremflickr.com/400/400/office",
+      "https://loremflickr.com/400/400/ergonomic",
+      "https://loremflickr.com/400/400/furniture"
+    ],
+    "createdAt": "2024-08-20T09:30:00.000Z",
+    "updatedAt": "2024-10-30T12:00:00.000Z"
+  },
+  {
+    "name": "Smart Home Speaker",
+    "slug": "smart-home-speaker",
+    "description": "Control your home with this smart speaker. Features voice commands and compatibility with other smart devices.",
+    "excerpt": "A smart speaker for controlling home devices.",
+    "price": 79900,
+    "tags": ["electronics", "home", "speaker"],
+    "thumbnail": "https://loremflickr.com/400/400/speaker",
+    "images": [
+      "https://loremflickr.com/400/400/smart",
+      "https://loremflickr.com/400/400/home",
+      "https://loremflickr.com/400/400/voice",
+      "https://loremflickr.com/400/400/tech"
+    ],
+    "createdAt": "2024-09-05T11:45:00.000Z",
+    "updatedAt": "2024-10-25T13:00:00.000Z"
+  },
+  {
+    "name": "Cordless Handheld Vacuum",
+    "slug": "cordless-handheld-vacuum",
+    "description": "Clean your home effortlessly with this cordless handheld vacuum. Lightweight and powerful suction.",
+    "excerpt": "A lightweight cordless handheld vacuum.",
+    "price": 89900,
+    "tags": ["home", "vacuum", "cleaning"],
+    "thumbnail": "https://loremflickr.com/400/400/vacuum",
+    "images": [
+      "https://loremflickr.com/400/400/cleaning",
+      "https://loremflickr.com/400/400/home",
+      "https://loremflickr.com/400/400/power",
+      "https://loremflickr.com/400/400/tools"
+    ],
+    "createdAt": "2024-09-20T13:30:00.000Z",
+    "updatedAt": "2024-10-15T12:00:00.000Z"
+  },
+  {
+    "name": "Modern Table Lamp",
+    "slug": "modern-table-lamp",
+    "description": "Illuminate your space with this stylish modern table lamp. Perfect for bedrooms or living rooms.",
+    "excerpt": "A modern table lamp to light up your room.",
+    "price": 34900,
+    "tags": ["home", "lamp", "lighting"],
+    "thumbnail": "https://loremflickr.com/400/400/lamp",
+    "images": [
+      "https://loremflickr.com/400/400/modern",
+      "https://loremflickr.com/400/400/lighting",
+      "https://loremflickr.com/400/400/decor",
+      "https://loremflickr.com/400/400/bedroom"
+    ],
+    "createdAt": "2024-10-01T10:00:00.000Z",
+    "updatedAt": "2024-10-20T14:00:00.000Z"
+  },
+  {
+    "name": "Foldable Electric Kettle",
+    "slug": "foldable-electric-kettle",
+    "description": "Boil water quickly and efficiently with this foldable electric kettle. Easy to store and travel-friendly.",
+    "excerpt": "A foldable electric kettle for easy boiling.",
+    "price": 24900,
+    "tags": ["kitchen", "kettle", "foldable"],
+    "thumbnail": "https://loremflickr.com/400/400/kettle",
+    "images": [
+      "https://loremflickr.com/400/400/boil",
+      "https://loremflickr.com/400/400/electric",
+      "https://loremflickr.com/400/400/kitchen",
+      "https://loremflickr.com/400/400/travel"
+    ],
+    "createdAt": "2024-10-10T11:15:00.000Z",
+    "updatedAt": "2024-11-01T09:00:00.000Z"
+  }
+]

@@ -9,7 +9,7 @@ export const AddWishlistButton = ({ productId }: { productId: string }) => {
   const addToWishlist = async (productId: string) => {
     try {
       await addWishlist(productId);
-      router.refresh(); // Memastikan wishlist diperbarui
+      router.refresh(); 
     } catch (error) {
       console.error("Gagal menambahkan ke wishlist:", error);
     }
@@ -19,7 +19,7 @@ export const AddWishlistButton = ({ productId }: { productId: string }) => {
     <button
       className="btn btn-success text-white font-bold hover:bg-green-600"
       onClick={(e) => {
-        e.stopPropagation(); // Mencegah event card ter-trigger
+        e.stopPropagation(); 
         addToWishlist(productId);
       }}
     >

@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 import { IProduct } from "@/db/models/product";
 

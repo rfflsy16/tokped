@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { BASE_URL } from "../wishlists/action";
+
 export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,7 +21,7 @@ export default function RegisterPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/users", {
+      const response = await fetch(`${BASE_URL}/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

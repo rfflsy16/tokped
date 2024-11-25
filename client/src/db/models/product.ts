@@ -34,7 +34,6 @@ export default class Product {
     return db.collection<IProductInput>("Products");
   }
 
-  // Menambahkan pagination pada fungsi read
   static async read(
     searchQuery?: string,
     limit?: number,
@@ -50,7 +49,7 @@ export default class Product {
 
     const products: IProduct[] = await collection
       .find(filter)
-      .skip(skip) // Skip data sesuai dengan halaman
+      .skip(skip) 
       .limit(limit || 10)
       .toArray();
 

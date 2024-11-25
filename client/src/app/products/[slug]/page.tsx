@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/app/wishlists/action";
 import { AddWishlistButton } from "@/components/AddWishlistButton";
 import { IProduct } from "@/db/models/product";
 import { Metadata } from "next";
@@ -11,12 +12,9 @@ export async function GetMetaData({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const response = await fetch(
-    `http://localhost:3000/api/products/${params.slug}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const response = await fetch(`${BASE_URL}/api/products/${params.slug}`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) throw new Error(`HTTP Error! status: ${response.status}`);
 
